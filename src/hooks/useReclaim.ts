@@ -42,7 +42,7 @@ export function useReclaim() {
       setDustList(dList);
       setSelectedAtas(eList.slice(0, MAX_BATCH).map((a) => a.ata));
     } catch (err: unknown) {
-      const msg = err instanceof Error ? err.message : "Scan failed.";
+      const msg = Error(err);
       setStatus({ type: "error", message: msg, signature: "" });
     } finally {
       setIsScanning(false);
@@ -89,7 +89,7 @@ export function useReclaim() {
       });
       setTimeout(runScan, 2000);
     } catch (err: unknown) {
-      const msg = err instanceof Error ? err.message : "Reclaim failed.";
+      const msg = Error(err);
       setStatus({ type: "error", message: msg, signature: "" });
     } finally {
       setIsReclaiming(false);

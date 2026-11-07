@@ -122,4 +122,4 @@ export async function reclaimSelectedAccounts(
     console.warn("Wallet error:", e);
     throw new Error(inner || (e instanceof Error ? e.message : "Wallet rejected the transaction."));
   }
-  return { signature, netSol: data.netSol };
+  return { signature, netSol: data.netSol };}
